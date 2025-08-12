@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="insert-default-users" author="application">
+        <comment>Inserção de usuários padrão</comment>
+
+        <insert tableName="usuarios">
+            <column name="id" value="f47ac10b-58cc-4372-a567-0e02b2c3d479" />
+            <column name="nome" value="Administrador" />
+            <column name="email" value="admin@exemplo.com" />
+            <column name="hash_senha" value="$2a$12$1WvPD1B9K9UAzW1OZjnQaeCQ3.T1AZfBYUAOXLV/X2/K7QGj9VoHu" /><!-- senha: admin123 -->
+        </insert>
+
+        <insert tableName="usuarios">
+            <column name="id" value="a81bc81b-dead-4e5d-abff-90865d1e13b1" />
+            <column name="nome" value="Usuário Teste" />
+            <column name="email" value="usuario@exemplo.com" />
+            <column name="hash_senha" value="$2a$12$INo0nbj40sQrTB7b28KJnOUuGHRlVYrpfmY5ybm8YEKkQAQnrrZge" /><!-- senha: usuario123 -->
+        </insert>
+    </changeSet>
+</databaseChangeLog>

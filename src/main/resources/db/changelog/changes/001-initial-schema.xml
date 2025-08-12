@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="create-tables" author="liquibase">
+        <comment>Criação da tabela de usuários</comment>
+        <createTable tableName="usuarios">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="hash_senha" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <comment>Criação da tabela de tarefas</comment>
+        <createTable tableName="tarefas">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="titulo" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="descricao" type="text"/>
+            <column name="responsavel_id" type="uuid">
+                <constraints foreignKeyName="fk_tarefas_responsavel"
+                             referencedTableName="usuarios"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="prioridade" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deadline" type="timestamp"/>
+        </createTable>
+
+
+    </changeSet>
+</databaseChangeLog>

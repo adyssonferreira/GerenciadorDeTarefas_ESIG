@@ -44,7 +44,5 @@
             </column>
             <column name="deadline" type="timestamp"/>
         </createTable>
-
-
     </changeSet>
 </databaseChangeLog>

@@ -2,12 +2,13 @@ package group.esig.todo.infrastructure.persistence.entities;
 
 import group.esig.todo.domain.enums.Prioridade;
 import group.esig.todo.domain.enums.TarefaStatus;
-import group.esig.todo.domain.models.Tarefa;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -44,4 +45,23 @@ public class TarefaEntity {
     @Column
     private Instant deadline;
 
+    @CreationTimestamp
+    @Column(name = "criado_em", nullable = false, updatable = false)
+    private Instant criadoEm;
+
+    @UpdateTimestamp
+    @Column(name = "atualizado_em", nullable = false)
+    private Instant atualizadoEm;
+
+    @PrePersist
+    @PreUpdate
+    private void validar() {
+        if (titulo == null || titulo.trim().isEmpty()) {
+            throw new IllegalArgumentException("Título é obrigatório");
+        }
+
+        if (deadline != null && deadline.isBefore(Instant.now())) {
+            throw new IllegalArgumentException("Deadline não pode ser no passado");
+        }
+    }
 }

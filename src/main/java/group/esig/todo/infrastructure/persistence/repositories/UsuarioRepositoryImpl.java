@@ -1,9 +1,9 @@
-package group.esig.todo.infrastructure.persistence.repository;
+package group.esig.todo.infrastructure.persistence.repositories;
 
 import group.esig.todo.domain.models.Usuario;
 import group.esig.todo.domain.repositories.UsuarioRepository;
 import group.esig.todo.infrastructure.persistence.mappers.UsuarioMapperPersistence;
-import group.esig.todo.infrastructure.persistence.repository.jpa.UsuarioRepositoryJpa;
+import group.esig.todo.infrastructure.persistence.repositories.jpa.UsuarioRepositoryJpa;
 import group.esig.todo.infrastructure.web.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

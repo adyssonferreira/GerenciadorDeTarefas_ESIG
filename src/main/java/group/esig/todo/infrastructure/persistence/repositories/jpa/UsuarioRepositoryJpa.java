@@ -1,4 +1,4 @@
-package group.esig.todo.infrastructure.persistence.repository.jpa;
+package group.esig.todo.infrastructure.persistence.repositories.jpa;
 
 import group.esig.todo.infrastructure.persistence.entities.UsuarioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

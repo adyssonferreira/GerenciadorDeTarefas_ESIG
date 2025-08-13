@@ -1,9 +1,9 @@
-package group.esig.todo.infrastructure.persistence.repository;
+package group.esig.todo.infrastructure.persistence.repositories;
 
 import group.esig.todo.domain.models.Tarefa;
 import group.esig.todo.domain.repositories.TarefaRepository;
 import group.esig.todo.infrastructure.persistence.mappers.TarefaMapperPersistence;
-import group.esig.todo.infrastructure.persistence.repository.jpa.TarefaRepositoryJpa;
+import group.esig.todo.infrastructure.persistence.repositories.jpa.TarefaRepositoryJpa;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

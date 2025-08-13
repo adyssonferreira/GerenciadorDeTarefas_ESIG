@@ -2,9 +2,11 @@ package group.esig.todo.infrastructure.persistence.repositories;
 
 import group.esig.todo.domain.models.Tarefa;
 import group.esig.todo.domain.repositories.TarefaRepository;
+import group.esig.todo.infrastructure.configs.CacheConfig;
 import group.esig.todo.infrastructure.persistence.mappers.TarefaMapperPersistence;
 import group.esig.todo.infrastructure.persistence.repositories.jpa.TarefaRepositoryJpa;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
@@ -25,6 +27,7 @@ public class TarefaRepositoryImpl implements TarefaRepository {
     }
 
     @Override
+    @Cacheable(value = CacheConfig.TAREFA_CACHE, key = "#id")
     public Tarefa buscarPorId(String id) {
         return repositoryJpa.findById(UUID.fromString(id))
                 .map(mapper::toModel)

@@ -8,7 +8,9 @@ import group.esig.todo.domain.models.Tarefa;
 import group.esig.todo.domain.models.Usuario;
 import group.esig.todo.domain.repositories.TarefaRepository;
 import group.esig.todo.domain.repositories.UsuarioRepository;
+import group.esig.todo.infrastructure.configs.CacheConfig;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -42,18 +44,19 @@ public class TarefaServiceImpl implements TarefaService {
     }
 
     @Override
-    public TarefaResponseDTO buscarPorId(String id) {
-        Tarefa tarefa = repository.buscarPorId(id);
+    public TarefaResponseDTO buscarPorId(UUID id) {
+        Tarefa tarefa = repository.buscarPorId(id.toString());
 
         return TarefaResponseDTO.from(tarefa);
     }
 
     @Override
-    public void remover(String id) {
-        repository.remover(id);
+    public void remover(UUID id) {
+        repository.remover(id.toString());
     }
 
     @Override
+    @CacheEvict(value = CacheConfig.TAREFA_CACHE, key = "#tarefaId")
     public TarefaResponseDTO atualizar(UUID tarefaId, TarefaRequestDTO dto) {
         Tarefa tarefa = repository.buscarPorId(tarefaId.toString());
 
@@ -75,8 +78,9 @@ public class TarefaServiceImpl implements TarefaService {
     }
 
     @Override
-    public void concluir(String tarefaId) {
-        Tarefa tarefa = repository.buscarPorId(tarefaId);
+    @CacheEvict(value = CacheConfig.TAREFA_CACHE, key = "#tarefaId")
+    public void concluir(UUID tarefaId) {
+        Tarefa tarefa = repository.buscarPorId(tarefaId.toString());
         tarefa.setStatus(TarefaStatus.FINALIZADA);
         repository.salvar(tarefa);
     }

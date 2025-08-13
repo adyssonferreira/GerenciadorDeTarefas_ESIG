@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -56,8 +57,12 @@ public class TarefaServiceImpl implements TarefaService {
     public TarefaResponseDTO atualizar(UUID tarefaId, TarefaRequestDTO dto) {
         Tarefa tarefa = repository.buscarPorId(tarefaId.toString());
 
-        tarefa.setTitulo(dto.titulo());
-        tarefa.setDescricao(dto.descricao());
+        if (Objects.nonNull(dto.titulo()) && !dto.titulo().isBlank())
+            tarefa.setTitulo(dto.titulo());
+
+        if (Objects.nonNull(dto.descricao()) && !dto.descricao().isBlank())
+            tarefa.setDescricao(dto.descricao());
+
         tarefa.setPrioridade(Prioridade.valueOf(dto.prioridade()));
         tarefa.setDeadline(dto.deadline());
 

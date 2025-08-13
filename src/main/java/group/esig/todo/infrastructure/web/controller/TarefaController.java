@@ -32,7 +32,7 @@ public class TarefaController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removerTarefa(@PathVariable String id) {
+    public void removerTarefa(@PathVariable UUID id) {
         tarefaService.remover(id);
     }
 
@@ -43,13 +43,13 @@ public class TarefaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TarefaResponseDTO> buscarTarefaPorId(@PathVariable String id) {
+    public ResponseEntity<TarefaResponseDTO> buscarTarefaPorId(@PathVariable UUID id) {
         return ResponseEntity.ok(tarefaService.buscarPorId(id));
     }
 
     @PutMapping("/{id}/concluir")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void concluirTarefa(@PathVariable String id) {
+    public void concluirTarefa(@PathVariable UUID id) {
         tarefaService.concluir(id);
     }
 }

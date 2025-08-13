@@ -5,6 +5,7 @@ import group.esig.todo.domain.repositories.TarefaRepository;
 import group.esig.todo.infrastructure.configs.CacheConfig;
 import group.esig.todo.infrastructure.persistence.mappers.TarefaMapperPersistence;
 import group.esig.todo.infrastructure.persistence.repositories.jpa.TarefaRepositoryJpa;
+import group.esig.todo.infrastructure.web.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
@@ -31,7 +32,7 @@ public class TarefaRepositoryImpl implements TarefaRepository {
     public Tarefa buscarPorId(String id) {
         return repositoryJpa.findById(UUID.fromString(id))
                 .map(mapper::toModel)
-                .orElseThrow(() -> new RuntimeException("Tarefa não encontrada"));
+                .orElseThrow(() -> new ResourceNotFoundException("Tarefa", "id", id));
     }
 
     @Override

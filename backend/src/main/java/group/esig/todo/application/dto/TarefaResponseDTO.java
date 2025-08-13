@@ -10,6 +10,7 @@ public record TarefaResponseDTO(
         String descricao,
         UsuarioDTO responsavel,
         String prioridade,
+        String status,
         Instant deadline
 ) {
     
@@ -20,6 +21,7 @@ public record TarefaResponseDTO(
                 model.getDescricao(),
                 UsuarioDTO.from(model.getResponsavel()),
                 model.getPrioridade().toString(),
+                model.getStatus().toString(),
                 model.getDeadline()
         );
     }

@@ -1,0 +1,14 @@
+package group.esig.todo.application.dto;
+
+import group.esig.todo.domain.enums.Prioridade;
+import group.esig.todo.domain.enums.TarefaStatus;
+
+import java.util.UUID;
+
+public record TarefaQueryDTO(
+        String termo,
+        Prioridade prioridade,
+        UUID responsavelId,
+        TarefaStatus status
+) {
+}

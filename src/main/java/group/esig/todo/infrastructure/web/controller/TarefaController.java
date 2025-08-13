@@ -1,5 +1,6 @@
 package group.esig.todo.infrastructure.web.controller;
 
+import group.esig.todo.application.dto.TarefaQueryDTO;
 import group.esig.todo.application.dto.TarefaRequestDTO;
 import group.esig.todo.application.dto.TarefaResponseDTO;
 import group.esig.todo.application.services.TarefaService;
@@ -39,6 +40,12 @@ public class TarefaController {
     @GetMapping
     public ResponseEntity<PageModel<TarefaResponseDTO>> listarTarefas(Pageable pageable) {
         Page<TarefaResponseDTO> page = tarefaService.listarPaginado(pageable);
+        return ResponseEntity.ok(PageModel.of(page));
+    }
+
+    @GetMapping("busca")
+    public ResponseEntity<PageModel<TarefaResponseDTO>> buscaTarefas(@ModelAttribute TarefaQueryDTO query, Pageable pageable) {
+        Page<TarefaResponseDTO> page = tarefaService.buscaPaginada(query, pageable);
         return ResponseEntity.ok(PageModel.of(page));
     }
 

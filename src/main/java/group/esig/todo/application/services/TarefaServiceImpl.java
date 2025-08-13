@@ -1,5 +1,6 @@
 package group.esig.todo.application.services;
 
+import group.esig.todo.application.dto.TarefaQueryDTO;
 import group.esig.todo.application.dto.TarefaRequestDTO;
 import group.esig.todo.application.dto.TarefaResponseDTO;
 import group.esig.todo.domain.enums.Prioridade;
@@ -75,6 +76,11 @@ public class TarefaServiceImpl implements TarefaService {
     @Override
     public Page<TarefaResponseDTO> listarPaginado(Pageable pageable) {
         return repository.listar(pageable).map(TarefaResponseDTO::from);
+    }
+
+    @Override
+    public Page<TarefaResponseDTO> buscaPaginada(TarefaQueryDTO query, Pageable pageable) {
+        return repository.buscaPorTermo(query, pageable).map(TarefaResponseDTO::from);
     }
 
     @Override

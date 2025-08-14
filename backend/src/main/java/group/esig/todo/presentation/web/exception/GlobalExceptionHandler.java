@@ -1,4 +1,4 @@
-package group.esig.todo.infrastructure.web.exception;
+package group.esig.todo.presentation.web.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

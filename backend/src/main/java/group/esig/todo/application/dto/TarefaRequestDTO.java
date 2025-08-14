@@ -5,7 +5,7 @@ import java.time.Instant;
 public record TarefaRequestDTO (
         String titulo,
         String descricao,
-        String responsavelId,
+        Integer responsavelId,
         String prioridade,
         Instant deadline
 ) {

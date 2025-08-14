@@ -22,7 +22,8 @@ import java.util.UUID;
 public class TarefaEntity {
 
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(nullable = false)
     private String titulo;

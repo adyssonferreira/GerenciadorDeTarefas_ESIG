@@ -32,7 +32,6 @@ public class TarefaServiceImpl implements TarefaService {
         final Usuario responsavel = usuarioRepository.buscarPorId(dto.responsavelId());
 
         Tarefa tarefa =  Tarefa.builder()
-                .id(UUID.randomUUID())
                 .titulo(dto.titulo())
                 .descricao(dto.descricao())
                 .prioridade(Prioridade.valueOf(dto.prioridade()))

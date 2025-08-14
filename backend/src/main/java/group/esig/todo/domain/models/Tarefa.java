@@ -16,7 +16,7 @@ import java.util.UUID;
 @EqualsAndHashCode(of = "id")
 public class Tarefa {
 
-    private UUID id;
+    private Integer id;
     private String titulo;
     private String descricao;
     private Usuario responsavel;

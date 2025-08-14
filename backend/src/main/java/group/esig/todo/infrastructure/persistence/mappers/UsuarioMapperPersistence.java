@@ -4,8 +4,10 @@ import group.esig.todo.domain.models.Usuario;
 import group.esig.todo.infrastructure.persistence.entities.UsuarioEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
+import org.springframework.stereotype.Component;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UsuarioMapperPersistence {
-    Usuario toModel(UsuarioEntity entity);
+
+    Usuario toDomain(UsuarioEntity entity);
 }

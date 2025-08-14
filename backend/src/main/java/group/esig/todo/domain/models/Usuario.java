@@ -9,7 +9,7 @@ import java.util.UUID;
 @EqualsAndHashCode(of = "id")
 public class Usuario {
 
-    private UUID id;
+    private Integer id;
     private String nome;
     private String email;
     private String hashSenha;

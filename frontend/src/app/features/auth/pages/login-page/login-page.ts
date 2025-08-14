@@ -1,4 +1,4 @@
-import {Component, signal} from '@angular/core';
+import {Component, computed, signal} from '@angular/core';
 import {ButtonModule} from 'primeng/button';
 import {InputText} from 'primeng/inputtext';
 import {FormsModule} from '@angular/forms';
@@ -22,12 +22,15 @@ export class LoginPage {
   protected readonly senha = signal('');
   protected readonly loading = signal(false);
 
+  protected readonly submittable = computed(() => {
+    return this.usuario().trim().length > 0 && this.senha().trim().length > 0 && !this.loading();
+  })
+
   protected login() {
     this.loading.set(true)
     setTimeout(() => {
       console.log("Dados:", this.usuario(), this.senha());
       this.loading.set(false)
     }, 2000)
-
   }
 }

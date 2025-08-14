@@ -7,7 +7,7 @@ import group.esig.todo.infrastructure.configs.CacheConfig;
 import group.esig.todo.infrastructure.persistence.mappers.TarefaMapperPersistence;
 import group.esig.todo.infrastructure.persistence.repositories.jpa.TarefaRepositoryJpa;
 import group.esig.todo.infrastructure.persistence.specifications.TarefaSpecification;
-import group.esig.todo.infrastructure.web.exception.ResourceNotFoundException;
+import group.esig.todo.presentation.web.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;

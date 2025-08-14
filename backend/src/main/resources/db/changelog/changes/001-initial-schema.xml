@@ -8,7 +8,7 @@
     <changeSet id="create-tables" author="liquibase">
         <comment>Criação da tabela de usuários</comment>
         <createTable tableName="usuarios">
-            <column name="id" type="uuid">
+            <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="nome" type="varchar(255)">
@@ -31,7 +31,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="descricao" type="text"/>
-            <column name="responsavel_id" type="uuid">
+            <column name="responsavel_id" type="int">
                 <constraints foreignKeyName="fk_tarefas_responsavel"
                              referencedTableName="usuarios"
                              referencedColumnNames="id"/>

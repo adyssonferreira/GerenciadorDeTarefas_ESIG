@@ -5,11 +5,12 @@ import group.esig.todo.domain.models.Usuario;
 import java.util.UUID;
 
 public record UsuarioDTO(
-        UUID id,
-        String nome
+        Integer id,
+        String nome,
+        String email
 ) {
 
     public static UsuarioDTO from(Usuario usuario){
-        return new UsuarioDTO(usuario.getId(), usuario.getNome());
+        return new UsuarioDTO(usuario.getId(), usuario.getNome(), usuario.getEmail());
     }
 }

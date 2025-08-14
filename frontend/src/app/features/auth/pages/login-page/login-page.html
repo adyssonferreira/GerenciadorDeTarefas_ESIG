@@ -27,11 +27,12 @@
     <div class="login-form-buttons">
       @if(loading()) {
         <p-button label="Entrar" size="large"
-                  [disabled]="loading()"
+                  [disabled]="!submittable()"
                   icon="pi pi-spin pi-spinner" iconPos="right"></p-button>
       } @else {
         <p-button label="Entrar" size="large"
                   (click)="login()"
+                  [disabled]="!submittable()"
                   ></p-button>
       }
     </div>

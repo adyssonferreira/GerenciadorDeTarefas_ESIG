@@ -40,6 +40,10 @@ public class TarefaSpecification {
                 predicates.add(builder.equal(root.get("prioridade"), dto.prioridade()));
             }
 
+            if (Objects.nonNull(dto.responsavelId())) {
+                predicates.add(builder.equal(root.get("responsavel").get("id"), dto.responsavelId()));
+            }
+
             return builder.and(predicates.toArray(new Predicate[0]));
         };
     }

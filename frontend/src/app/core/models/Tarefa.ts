@@ -12,6 +12,10 @@ interface Tarefa {
     deadline: string;
 }
 
+export type TarefaRequest = Omit<Tarefa, 'id' | "responsavel"> & {
+    responsavelId: string;
+}
+
 export function getInitialTarefa (): Tarefa {
     return {
         id: "",

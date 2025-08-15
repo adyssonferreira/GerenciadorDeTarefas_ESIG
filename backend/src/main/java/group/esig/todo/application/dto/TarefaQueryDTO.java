@@ -8,7 +8,7 @@ import java.util.UUID;
 public record TarefaQueryDTO(
         String termo,
         Prioridade prioridade,
-        UUID responsavelId,
+        Integer responsavelId,
         TarefaStatus status
 ) {
 }

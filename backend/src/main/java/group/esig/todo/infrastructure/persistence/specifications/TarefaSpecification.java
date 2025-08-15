@@ -16,6 +16,11 @@ public class TarefaSpecification {
         return (root, query, builder) -> {
             List<Predicate> predicates = new ArrayList<>();
 
+            if(Objects.nonNull(dto.id())){
+                predicates.add(builder.equal(root.get("id"), dto.id()));
+                return builder.and(predicates.toArray(new Predicate[0]));
+            }
+
             if (Objects.nonNull(dto.termo()) && !dto.termo().isBlank()) {
                 List<Predicate> orPredicates = new ArrayList<>();
 

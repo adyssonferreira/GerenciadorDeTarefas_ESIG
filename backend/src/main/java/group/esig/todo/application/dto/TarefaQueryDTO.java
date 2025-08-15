@@ -6,6 +6,7 @@ import group.esig.todo.domain.enums.TarefaStatus;
 import java.util.UUID;
 
 public record TarefaQueryDTO(
+        String id,
         String termo,
         Prioridade prioridade,
         Integer responsavelId,

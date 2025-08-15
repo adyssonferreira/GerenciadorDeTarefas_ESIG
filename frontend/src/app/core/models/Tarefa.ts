@@ -12,4 +12,20 @@ interface Tarefa {
     deadline: string;
 }
 
+export function getInitialTarefa (): Tarefa {
+    return {
+        id: "",
+        titulo: "",
+        descricao: "",
+        responsavel: {
+            id: "",
+            nome: "",
+            email: ""
+        },
+        prioridade: Prioridade.MEDIA,
+        status: Situacao.ABERTA,
+        deadline: "",
+    }
+}
+
 export default Tarefa;

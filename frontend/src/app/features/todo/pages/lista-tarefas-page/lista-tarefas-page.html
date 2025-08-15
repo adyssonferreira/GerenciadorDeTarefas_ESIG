@@ -1,10 +1,18 @@
 <div class="lista-tarefas-page">
   <div class="lista-tarefas-container">
-      <app-lista-tarefas-campos (filtrar)="buscarTarefas($event)" [filtro]="filtro()"/>
-      <br/>
-      <br/>
-      <app-lista-tarefas-grid [tarefas]="tarefas()" (atualizarGrid)="atualizarPaginaAtual()"/>
-      <br>
-      <app-lista-tarefas-pagination [pageData]="page()" (paginate)="atualizarPagina($event)" />
+      <div class="flex justify-content-end">
+          <p-button label="Nova Tarefa" size="small" variant="outlined" icon="pi pi-plus" iconPos="right" (click)="setModoAcao(ModoAcao.ADICAO)"/>
+      </div>
+
+      <div style="margin-top: -2em">
+          <app-lista-tarefas-campos (filtrar)="buscarTarefas($event)" [filtro]="filtro()" />
+          <br/>
+          <br/>
+          <app-lista-tarefas-grid [tarefas]="tarefas()" (atualizarGrid)="atualizarPaginaAtual()"/>
+          <br>
+          <app-lista-tarefas-pagination [pageData]="page()" (paginate)="atualizarPagina($event)" />
+      </div>
   </div>
 </div>
+
+<app-tarefa-cadastro [visible]="modoAcao() == ModoAcao.ADICAO" (onFecharDialog)="setModoAcao(ModoAcao.IDLE)" (onItemSalvo)="atualizarPaginaAtual()" />

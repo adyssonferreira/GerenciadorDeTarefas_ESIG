@@ -18,13 +18,10 @@ export class TarefaService {
         return this.http.put<Tarefa>(`${this.baseUrl}/${tarefaId}`, tarefa);
     }
 
-    buscarTodas(): Observable<Page<Tarefa>> {
-        return this.http.get<Page<Tarefa>>(this.baseUrl);
-    }
-
     buscarPorFiltro(filtro: BuscaFiltro, pagina: PageParams): Observable<Page<Tarefa>> {
         return this.http.get<Page<Tarefa>>(`${this.baseUrl}/busca`, {
             params: {
+                ...(filtro.numero ? {id: filtro.numero} : {}),
                 ...(filtro.termo ? {termo: filtro.termo} : {}),
                 ...(filtro.prioridade && filtro.prioridade != "TODAS" ? {prioridade: filtro.prioridade} : {}),
                 ...(filtro.responsavelId ? {responsavelId: filtro.responsavelId} : {}),
@@ -40,5 +37,9 @@ export class TarefaService {
 
     concluirTarefa(tarefaId: string): Observable<Tarefa> {
         return this.http.put<Tarefa>(`${this.baseUrl}/${tarefaId}/concluir`, {});
+    }
+
+    criarTarefa(tarefa: TarefaRequest): Observable<Tarefa> {
+        return this.http.post<Tarefa>(this.baseUrl, tarefa);
     }
 }

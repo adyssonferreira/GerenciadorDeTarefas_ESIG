@@ -9,6 +9,9 @@ import {ListaTarefasPagination} from '../../components/lista-tarefas-pagination/
 import {PaginatorState} from 'primeng/paginator';
 import {JsonPipe} from '@angular/common';
 import Situacao from '../../../../core/enums/Situacao';
+import {Button} from 'primeng/button';
+import ModoAcao from '../../../../shared/types/ModoAcao';
+import {TarefaCadastro} from '../../components/tarefa-cadastro/tarefa-cadastro';
 
 @Component({
     selector: 'app-lista-tarefas-page',
@@ -16,17 +19,22 @@ import Situacao from '../../../../core/enums/Situacao';
         ListaTarefasCampos,
         ListaTarefasGrid,
         ListaTarefasPagination,
-        JsonPipe
+        JsonPipe,
+        Button,
+        TarefaCadastro
     ],
     templateUrl: './lista-tarefas-page.html',
     styleUrl: './lista-tarefas-page.scss'
 })
 export class ListaTarefasPage implements OnInit {
+    protected readonly ModoAcao = ModoAcao;
     private tarefaService = inject(TarefaService);
 
     protected readonly page = signal<Page<Tarefa>>(getInitialPage<Tarefa>())
     protected tarefas = computed(() => this.page().items ?? []);
     protected readonly filtro = signal<BuscaFiltro>(getIntialBuscaFiltro());
+    protected readonly modoAcao = signal<ModoAcao>(ModoAcao.IDLE);
+
 
     ngOnInit() {
         this.buscarTarefas(this.filtro());
@@ -35,14 +43,11 @@ export class ListaTarefasPage implements OnInit {
     buscarTarefas(newFiltro: BuscaFiltro, newPageParams?: PageParams) {
         const self = this;
 
-        debugger
-
         if(!newFiltro.situacao) {
             newFiltro.situacao = Situacao.ABERTA;
         }
 
         this.filtro.set(newFiltro);
-
         const paginaParams = newPageParams ?? {page: 0, size: this.page().size}
 
         this.tarefaService.buscarPorFiltro(this.filtro(), paginaParams).subscribe({
@@ -71,5 +76,10 @@ export class ListaTarefasPage implements OnInit {
         } as PageParams;
 
         this.buscarTarefas(this.filtro(), paginaParams);
+        this.setModoAcao(ModoAcao.IDLE);
+    }
+
+    setModoAcao(modoAcao: ModoAcao) {
+        this.modoAcao.set(modoAcao);
     }
 }

@@ -44,6 +44,8 @@ export class ListaTarefasGrid {
         this.tarefaSelecionada.set(tarefa);
     }
 
+
+
     concluirTarefa(tarefa: Tarefa) {
         this.tarefaService.concluirTarefa(tarefa.id).subscribe({
             next: () => {

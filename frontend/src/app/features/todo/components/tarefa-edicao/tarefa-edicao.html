@@ -1,0 +1,43 @@
+<p-dialog header="Editar Tarefa" [(visible)]="visible" [modal]="true" [style]="{width: '45rem'}"
+          (visibleChange)="onVisibleChange($event)">
+    <form [formGroup]="tarefaForm" (ngSubmit)="salvarTarefa()">
+        <div class="row-two-colums">
+            <label>Id:</label>
+            <input type="text" [value]="tarefa?.id" pInputText disabled class="w-3"/>
+
+            <label>Título:</label>
+            <input type="text"
+                   formControlName="titulo"
+                   pInputText
+                   class="w-full"/>
+
+            <label>Descrição:</label>
+            <textarea rows="5" pTextarea formControlName="descricao" class="w-full"></textarea>
+
+            <label style="transform: translateY(0.5em)">Responsável:</label>
+            <div class="row-three-colums">
+                <p-select [options]="usuarios()" formControlName="responsavel" optionLabel="label"
+                          placeholder="Responsável"
+                          emptyMessage="Nenhum usuário"/>
+            </div>
+
+            <label style="transform: translateY(0.5em)">Deadline:</label>
+            <div class="row-three-colums">
+                <p-date-picker formControlName="deadline" showIcon dateFormat="dd/mm/yy" />
+            </div>
+
+            <label style="transform: translateY(0.5em)">Prioridade:</label>
+            <div class="row-three-colums">
+                <p-select [options]="prioridades" formControlName="prioridade" optionLabel="label"
+                          placeholder="Prioridade"
+                          emptyMessage="Nenhuma"/>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="text-center">
+            <p-button label="Salvar Tarefa" [loading]="loadingEdicao()" type="submit"/>
+        </div>
+    </form>
+</p-dialog>

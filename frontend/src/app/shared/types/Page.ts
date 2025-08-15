@@ -14,7 +14,7 @@ export type PageParams = {
 export function getInitialPage<T>(): Page<T> {
     return {
         items: [],
-        size: 0,
+        size: 10,
         number: 0,
         totalElements: 0,
         totalPages: 0

@@ -1,0 +1,11 @@
+<p-dialog header="Excluir Tarefa" [(visible)]="visible" [modal]="true" [style]="{width: '25rem'}"
+          (visibleChange)="onVisibleChange($event)">
+    <div>
+        <span>Deseja excliur a tarefa <strong class="font-italic">"{{ tarefa?.titulo }}"</strong>?</span>
+    </div>
+    <br>
+    <div class="flex justify-content-evenly">
+        <p-button label="Excluir" (click)="excluirTarefa()" [disabled]="loadingExclusao()" severity="danger"/>
+        <p-button label="Cancelar" (click)="fecharDialog()" severity="secondary"/>
+    </div>
+</p-dialog>

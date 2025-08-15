@@ -1,0 +1,38 @@
+.title {
+    margin-bottom: 0.5em;
+}
+
+.description {
+    background-color: var(--p-surface-50);
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 0.5em;
+    font-weight: bold;
+
+    i {
+        font-size: 1.15em;
+        margin-right: 0.35em;
+    }
+
+    .stuation {
+        color: navy;
+        background-color: var(--p-surface-50);
+        padding: 0.25em 0.5em;
+        border-radius: 0.25em;
+        font-size: 0.85em;
+    }
+}
+
+.tarefa-id {
+    font-size: 0.85em;
+    color: var(--p-neutral-500);
+    font-style: italic;
+
+}

@@ -1,0 +1,39 @@
+.grid-head {
+    font-weight: bold;
+    font-size: 0.95em;
+    color: midnightblue;
+}
+
+.grid-content {
+    margin: 0.5em 0;
+}
+
+.grid-row {
+    font-size: 0.95em;
+    text-align: center;
+    color: dimgray;
+}
+
+.grid-head {
+    text-align: center;
+}
+
+.grid-row-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    p-button {
+        filter: saturate(0.4);
+        margin: 0 0.25em;
+
+        &:hover {
+            filter: saturate(1.2);
+        }
+    }
+}
+
+.grid-row-priority {
+    filter: saturate(0.75);
+}

@@ -1,0 +1,20 @@
+.row-two-colums {
+    display: grid;
+    grid-template-columns: 115px 1fr;
+    row-gap: 1em;
+    margin: 0 0 1.25em;
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.row-three-colums {
+    display: grid;
+    grid-template-columns: 1fr 70px 1fr;
+}
+
+::ng-deep .p-dialog-content {
+    overflow: visible;
+}

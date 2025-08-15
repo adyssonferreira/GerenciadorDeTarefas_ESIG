@@ -1,0 +1,40 @@
+<p-dialog header="Visualizar Tarefa" [modal]="true" [(visible)]="visible" [style]="{ width: '35rem' }"
+          (visibleChange)="onVisibleChange($event)">
+    @if (tarefa != null) {
+        <ng-container>
+            <h2 class="title">{{ tarefa.titulo }}</h2>
+            <div class="text-right p-0 -mt-4 pr-2">
+                <span class="text-sm tarefa-id"># {{ tarefa.id }}</span>
+            </div>
+            <p class="description">{{ tarefa.descricao }}</p>
+
+            <br>
+
+            <div class="info">
+                <div pTooltip="Responsável" tooltipPosition="top" showDelay="550">
+                    <i class="pi pi-user"></i>
+                    <span class="text-sm">{{ tarefa.responsavel.nome }}</span>
+                </div>
+
+                <div pTooltip="Deadline" tooltipPosition="top" showDelay="550">
+                    <i class="pi pi-calendar" style="transform: translateY(10%)"></i>
+                    <span class="text-sm">{{ tarefa.deadline | date: 'dd/MM/yyyy' }}</span>
+                </div>
+            </div>
+
+            <div class="info">
+                <div>
+                    <span class="text-sm">Situação: </span>
+                    <span class="stuation">{{ tarefa.status }}</span>
+                </div>
+
+                <div class="flex items-center align-items-center">
+                    <span class="text-sm">Prioridade: </span>
+                    <p style="transform: scale(0.85) translateY(-5%)">
+                        <app-lista-tarefas-prioridade-tag [prioridade]="tarefa.prioridade"/>
+                    </p>
+                </div>
+            </div>
+        </ng-container>
+    }
+</p-dialog>

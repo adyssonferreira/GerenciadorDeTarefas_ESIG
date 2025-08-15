@@ -22,28 +22,29 @@ import { UsuarioService } from '../../../../core/services/usuario.service';
 export class ListaTarefasCampos implements OnInit {
     @Input() filtro!: BuscaFiltro;
     @Output() filtrar = new EventEmitter<BuscaFiltro>();
-    @Output() atualizaFiltro = new EventEmitter<BuscaFiltro>();
 
     private usuarioService = inject(UsuarioService);
     usuarios: Option [] = []
+    usuarioSelecionado: Option | null = null;
 
     situacoes: Option[] = [
         {label: 'Todas', value: Situacao.TODAS},
-        {label: 'Aberto', value: Situacao.ABERTA},
+        {label: 'Aberta', value: Situacao.ABERTA},
         {label: 'Finalizada', value: Situacao.FINALIZADA},
-        {label: 'Cancelada', value: Situacao.CANCELADA}
     ]
-
-
 
     ngOnInit() {
         this.fetchUsuarios();
     }
 
     buscarTarefas() {
-        const filtro = { ...this.filtro, situacao: this.filtro.situacao ?? Situacao.TODAS, prioridade: this.filtro.prioridade ?? "T"};
+        const filtro = {
+            ...this.filtro,
+            prioridade: this.filtro.prioridade ?? null,
+            responsavelId: this.usuarioSelecionado?.value ?? null
+        } as BuscaFiltro;
 
-        this.filtrar.emit(this.filtro);
+        this.filtrar.emit(filtro);
     }
 
     fetchUsuarios() {

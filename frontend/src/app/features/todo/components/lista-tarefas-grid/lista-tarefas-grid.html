@@ -1,0 +1,84 @@
+<div class="lista-tarefas-grid">
+    <div class="grid grid-head bg-gray-100">
+        <div class="col-1 text-center bg-gray-100">
+            <span>Número</span>
+        </div>
+
+        <div class="col-4 text-center ">
+            <span>Título</span>
+        </div>
+
+        <div class="col-2 text-center">
+            <span>Responsável</span>
+        </div>
+
+        <div class="col-2 text-center">
+            <span>Prioridade</span>
+        </div>
+
+        <div class="col-3 text-center">
+            <span>Ações</span>
+        </div>
+    </div>
+
+    @for (tarefa of tarefas; track tarefa.id) {
+        <div class="grid grid-content">
+            <div class="col-1 grid-row">
+                <span>{{ tarefa.id }}</span>
+            </div>
+
+            <div class="col-4 grid-row">
+                <span>{{ tarefa.titulo }}</span>
+            </div>
+
+            <div class="col-2 grid-row">
+                <span>{{ tarefa.responsavel.nome }}</span>
+            </div>
+
+            <div class="col-2 grid-row grid-row-priority">
+                <app-lista-tarefas-prioridade-tag [prioridade]="tarefa.prioridade"/>
+            </div>
+
+            <div class="col-3 grid-row">
+                <div class="grid-row-actions">
+                    <p-button size="small" pTooltip="Visualizar" showDelay="450" tooltipPosition="top" variant="text"
+                              icon="pi pi-eye"
+                              iconPos="right" (click)="setModoAcao(ModoAcao.VISUALIZACAO, tarefa)"/>
+                    <p-button size="small" pTooltip="Editar" showDelay="450" tooltipPosition="top" variant="text"
+                              icon="pi pi-pencil"
+                              iconPos="right" (click)="setModoAcao(ModoAcao.EDICAO, tarefa)"/>
+                    <p-button size="small" pTooltip="Excluir" showDelay="450" tooltipPosition="top" variant="text"
+                              severity="danger"
+                              icon="pi pi-trash" iconPos="right" (click)="setModoAcao(ModoAcao.EXCLUSAO, tarefa)" />
+
+                    @if (tarefa.status != "FINALIZADA") {
+                        <p-button size="small" pTooltip="Concluir" showDelay="450" tooltipPosition="top"
+                                  severity="success"
+                                  variant="text" (click)="concluirTarefa(tarefa)"
+                                  icon="pi pi-check" iconPos="right"/>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<app-tarefa-visualizacao [tarefa]="tarefaSelecionada()" [visible]="modoAcao() == ModoAcao.VISUALIZACAO" (onFecharDialog)="setModoAcao(ModoAcao.IDLE, null)" />
+
+@if(tarefaSelecionada() != null) {
+    <app-tarefa-edicao
+        [tarefa]="tarefaSelecionada()"
+        [visible]="modoAcao() == ModoAcao.EDICAO"
+        (onFecharDialog)="setModoAcao(ModoAcao.IDLE, null)"
+        (onItemSalvo)="onItemSalvo($event)"
+    />
+
+    <app-tarefa-exclusao
+        [tarefa]="tarefaSelecionada()"
+        [visible]="modoAcao() == ModoAcao.EXCLUSAO"
+        (onFecharDialog)="setModoAcao(ModoAcao.IDLE, null)"
+        (onItemExcluido)="onItemExcluido($event)"
+        />
+}
+
+<p-toast />

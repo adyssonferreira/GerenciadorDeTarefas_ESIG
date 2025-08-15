@@ -1,0 +1,23 @@
+.lista-tarefas-campos {
+    padding: 1em 1.5em;
+}
+
+.grid {
+  margin-bottom: 1.5em;
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.95em;
+}
+
+.row-two-colums {
+    display: grid;
+    grid-template-columns: 135px 1fr;
+    margin: 1.25em 0;
+}
+
+.row-four-colums {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}

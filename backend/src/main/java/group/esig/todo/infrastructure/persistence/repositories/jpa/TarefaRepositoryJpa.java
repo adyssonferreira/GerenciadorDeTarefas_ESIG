@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface TarefaRepositoryJpa extends JpaRepository<TarefaEntity, UUID>, JpaSpecificationExecutor<TarefaEntity> {
+public interface TarefaRepositoryJpa extends JpaRepository<TarefaEntity, Integer>, JpaSpecificationExecutor<TarefaEntity> {
 }

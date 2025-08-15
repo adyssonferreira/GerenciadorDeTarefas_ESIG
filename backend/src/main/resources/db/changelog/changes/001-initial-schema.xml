@@ -24,7 +24,7 @@
 
         <comment>Criação da tabela de tarefas</comment>
         <createTable tableName="tarefas">
-            <column name="id" type="uuid">
+            <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="titulo" type="varchar(255)">

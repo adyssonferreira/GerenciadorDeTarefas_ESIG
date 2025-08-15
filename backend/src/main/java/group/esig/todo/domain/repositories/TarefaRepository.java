@@ -9,9 +9,9 @@ public interface TarefaRepository {
 
     Tarefa salvar(Tarefa tarefa);
 
-    Tarefa buscarPorId(String id);
+    Tarefa buscarPorId(Integer id);
 
-    void remover(String id);
+    void remover(Integer id);
 
     Page<Tarefa> listar(Pageable pageable);
 

@@ -44,21 +44,21 @@ public class TarefaServiceImpl implements TarefaService {
     }
 
     @Override
-    public TarefaResponseDTO buscarPorId(UUID id) {
-        Tarefa tarefa = repository.buscarPorId(id.toString());
+    public TarefaResponseDTO buscarPorId(Integer id) {
+        Tarefa tarefa = repository.buscarPorId(id);
 
         return TarefaResponseDTO.from(tarefa);
     }
 
     @Override
-    public void remover(UUID id) {
-        repository.remover(id.toString());
+    public void remover(Integer id) {
+        repository.remover(id);
     }
 
     @Override
     @CacheEvict(value = CacheConfig.TAREFA_CACHE, key = "#tarefaId")
-    public TarefaResponseDTO atualizar(UUID tarefaId, TarefaRequestDTO dto) {
-        Tarefa tarefa = repository.buscarPorId(tarefaId.toString());
+    public TarefaResponseDTO atualizar(Integer tarefaId, TarefaRequestDTO dto) {
+        Tarefa tarefa = repository.buscarPorId(tarefaId);
 
         if (Objects.nonNull(dto.titulo()) && !dto.titulo().isBlank())
             tarefa.setTitulo(dto.titulo());
@@ -84,8 +84,8 @@ public class TarefaServiceImpl implements TarefaService {
 
     @Override
     @CacheEvict(value = CacheConfig.TAREFA_CACHE, key = "#tarefaId")
-    public void concluir(UUID tarefaId) {
-        Tarefa tarefa = repository.buscarPorId(tarefaId.toString());
+    public void concluir(Integer tarefaId) {
+        Tarefa tarefa = repository.buscarPorId(tarefaId);
         tarefa.setStatus(TarefaStatus.FINALIZADA);
         repository.salvar(tarefa);
     }

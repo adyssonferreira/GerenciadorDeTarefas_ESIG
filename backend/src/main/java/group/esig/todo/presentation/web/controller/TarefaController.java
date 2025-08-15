@@ -12,9 +12,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
+import java.lang.Integer;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/v1/tarefas")
 @RequiredArgsConstructor
 public class TarefaController {
@@ -27,13 +28,13 @@ public class TarefaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TarefaResponseDTO> atualizarTarefa(@PathVariable String id, @RequestBody TarefaRequestDTO tarefa) {
-        return ResponseEntity.ok(tarefaService.atualizar(UUID.fromString(id), tarefa));
+    public ResponseEntity<TarefaResponseDTO> atualizarTarefa(@PathVariable Integer id, @RequestBody TarefaRequestDTO tarefa) {
+        return ResponseEntity.ok(tarefaService.atualizar(id, tarefa));
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removerTarefa(@PathVariable UUID id) {
+    public void removerTarefa(@PathVariable Integer id) {
         tarefaService.remover(id);
     }
 
@@ -50,13 +51,13 @@ public class TarefaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TarefaResponseDTO> buscarTarefaPorId(@PathVariable UUID id) {
+    public ResponseEntity<TarefaResponseDTO> buscarTarefaPorId(@PathVariable Integer id) {
         return ResponseEntity.ok(tarefaService.buscarPorId(id));
     }
 
     @PutMapping("/{id}/concluir")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void concluirTarefa(@PathVariable UUID id) {
+    public void concluirTarefa(@PathVariable Integer id) {
         tarefaService.concluir(id);
     }
 }

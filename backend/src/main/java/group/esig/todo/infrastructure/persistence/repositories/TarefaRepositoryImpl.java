@@ -26,21 +26,22 @@ public class TarefaRepositoryImpl implements TarefaRepository {
 
     @Override
     public Tarefa salvar(Tarefa tarefa) {
-        var savedEntity = repositoryJpa.saveAndFlush(mapper.toEntity(tarefa));
+        var entity = mapper.toEntity(tarefa);
+        var savedEntity = repositoryJpa.saveAndFlush(entity);
         return mapper.toModel(savedEntity);
     }
 
     @Override
     @Cacheable(value = CacheConfig.TAREFA_CACHE, key = "#id")
-    public Tarefa buscarPorId(String id) {
-        return repositoryJpa.findById(UUID.fromString(id))
+    public Tarefa buscarPorId(Integer id) {
+        return repositoryJpa.findById(id)
                 .map(mapper::toModel)
                 .orElseThrow(() -> new ResourceNotFoundException("Tarefa", "id", id));
     }
 
     @Override
-    public void remover(String id) {
-        repositoryJpa.deleteById(UUID.fromString(id));
+    public void remover(Integer id) {
+        repositoryJpa.deleteById(Integer.valueOf(id));
     }
 
     @Override

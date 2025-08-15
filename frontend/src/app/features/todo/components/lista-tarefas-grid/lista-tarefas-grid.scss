@@ -37,3 +37,8 @@
 .grid-row-priority {
     filter: saturate(0.75);
 }
+
+.scroll-grid {
+    max-height: calc(100vh - 480px);
+    overflow-y: auto;
+}

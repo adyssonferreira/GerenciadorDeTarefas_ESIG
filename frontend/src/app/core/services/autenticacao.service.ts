@@ -1,17 +1,18 @@
-import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
+import Service from './service';
+import {Injectable} from '@angular/core';
 import AcessoToken from '../models/AccessToken';
-import {HttpClient} from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
-export class AutenticacaoService {
+export class AutenticacaoService extends Service {
     private readonly TOKEN_KEY = 'app.token';
 
-    private readonly baseUrl = 'http://localhost:8080/api/v1/auth';
+    private readonly baseUrl = `${this.baseApiUrl}/auth`;
 
-    constructor(private http: HttpClient) {
+    constructor() {
+        super();
     }
 
     gerarToken(usernameOrEmail: string, senha: string): Observable<AcessoToken> {

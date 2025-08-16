@@ -10,11 +10,11 @@
     </div>
 
     <div class="row-colums-ext">
-        <label>Responsável:</label>
+        <label style="transform: translateY(25%)">Responsável:</label>
         <p-select [options]="usuarios" [(ngModel)]="usuarioSelecionado" optionLabel="label" placeholder="Responsável"
                   emptyMessage="Nenhum usuário"/>
 
-        <label>Situação:</label>
+        <label style="transform: translateY(25%)">Situação:</label>
         <p-select  [options]="situacoes" [(ngModel)]="situacaoSelecionada" optionLabel="label" placeholder="Situação" class="only-desktop" />
 
         <div class="text-right">

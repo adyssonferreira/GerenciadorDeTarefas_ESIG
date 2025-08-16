@@ -1,4 +1,4 @@
-@import '../../../../shared/styles/variables.scss';
+@use '../../../../shared/styles/variables.scss' as vars;
 
 .lista-tarefas-page {
     background-color: var(--p-surface-100);
@@ -13,7 +13,7 @@
     justify-content: center;
     overflow: hidden;
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: vars.$breakpoint-md) {
         padding: 10px;
     }
 }
@@ -27,7 +27,7 @@
     padding: 2em;
     background-color: white;
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: vars.$breakpoint-md) {
         padding: 1rem;
     }
 }

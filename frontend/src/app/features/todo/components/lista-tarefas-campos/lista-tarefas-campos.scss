@@ -1,9 +1,9 @@
-@import '../../../../shared/styles/variables.scss';
+@use '../../../../shared/styles/variables.scss' as vars;
 
 .lista-tarefas-campos {
     padding: 1em 1.5em;
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: vars.$breakpoint-md) {
         padding: 10px;
     }
 }
@@ -23,7 +23,7 @@ label {
     grid-template-columns: 135px 1fr;
     margin: 1.25em 0;
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: vars.$breakpoint-md) {
         grid-template-columns: 1fr;
     }
 }
@@ -36,12 +36,12 @@ label {
         grid-template-columns: 135px 165px 105px 145px 1fr;
     }
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: vars.$breakpoint-md) {
         grid-template-columns: 1fr;
     }
 
     :nth-child(3), :nth-child(5) {
-        @media (max-width: $breakpoint-md) {
+        @media (max-width: vars.$breakpoint-md) {
             margin-top: 1.05rem;
         }
     }
@@ -50,7 +50,7 @@ label {
         text-align: right;
         margin-right: 1rem;
 
-        @media (max-width: $breakpoint-md) {
+        @media (max-width: vars.$breakpoint-md) {
             text-align: left;
         }
     }

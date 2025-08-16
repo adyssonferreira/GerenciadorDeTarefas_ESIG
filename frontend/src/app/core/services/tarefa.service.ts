@@ -1,17 +1,18 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import Tarefa, {TarefaRequest} from '../models/Tarefa';
 import Page, {PageParams} from '../../shared/types/Page';
 import BuscaFiltro from '../models/BuscaFiltro';
+import Service from './service';
 
 @Injectable({
     providedIn: 'root'
 })
-export class TarefaService {
-    private readonly baseUrl = 'http://localhost:8080/api/v1/tarefas';
+export class TarefaService extends Service {
+    private readonly baseUrl = `${this.baseApiUrl}/tarefas`;
 
-    constructor(private http: HttpClient) {
+    constructor() {
+        super();
     }
 
     atualizarTarefa(tarefaId: string, tarefa: TarefaRequest): Observable<Tarefa> {

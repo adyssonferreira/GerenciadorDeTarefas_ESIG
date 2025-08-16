@@ -1,19 +1,19 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import Service from './service';
 import { Observable } from 'rxjs';
 import Usuario from '../models/Usuario';
-import AcessoToken from '../models/AccessToken';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
-  private readonly baseUrl = 'http://localhost:8080/api/v1/usuarios';
+export class UsuarioService extends Service {
+  private readonly baseUrl = `${this.baseApiUrl}/usuarios`;
 
-  constructor(private http: HttpClient) {}
+  constructor() {
+    super();
+  }
 
   buscarTodos(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.baseUrl);
   }
-
 }

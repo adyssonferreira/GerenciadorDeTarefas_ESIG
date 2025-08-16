@@ -12,35 +12,35 @@
             <column name="nome" value="Administrador"/>
             <column name="email" value="admin@exemplo.com"/>
             <column name="hash_senha"
-                    value="$2a$12$1WvPD1B9K9UAzW1OZjnQaeCQ3.T1AZfBYUAOXLV/X2/K7QGj9VoHu"/><!-- senha: admin123 -->
+                    value="$2a$12$9ur1ZQSGWqkQTTnOUn0v0.XK9N8cUEcK.LxCbCLsSInajjAwV3NhW"/><!-- senha: 123 -->
         </insert>
 
         <insert tableName="usuarios">
             <column name="nome" value="Usuário Um"/>
             <column name="email" value="usuario1@exemplo.com"/>
             <column name="hash_senha"
-                    value="$2a$12$INo0nbj40sQrTB7b28KJnOUuGHRlVYrpfmY5ybm8YEKkQAQnrrZge"/><!-- senha: usuario123 -->
+                    value="$2a$12$9ur1ZQSGWqkQTTnOUn0v0.XK9N8cUEcK.LxCbCLsSInajjAwV3NhW"/><!-- senha: 123 -->
         </insert>
 
         <insert tableName="usuarios">
             <column name="nome" value="Usuário Dois"/>
             <column name="email" value="usuario2@exemplo.com"/>
             <column name="hash_senha"
-                    value="$2a$12$INo0nbj40sQrTB7b28KJnOUuGHRlVYrpfmY5ybm8YEKkQAQnrrZge"/><!-- senha: usuario123 -->
+                    value="$2a$12$9ur1ZQSGWqkQTTnOUn0v0.XK9N8cUEcK.LxCbCLsSInajjAwV3NhW"/><!-- senha: 123 -->
         </insert>
 
         <insert tableName="usuarios">
             <column name="nome" value="Usuário Três"/>
             <column name="email" value="usuario3@exemplo.com"/>
             <column name="hash_senha"
-                    value="$2a$12$INo0nbj40sQrTB7b28KJnOUuGHRlVYrpfmY5ybm8YEKkQAQnrrZge"/><!-- senha: usuario123 -->
+                    value="$2a$12$9ur1ZQSGWqkQTTnOUn0v0.XK9N8cUEcK.LxCbCLsSInajjAwV3NhW"/><!-- senha: 123 -->
         </insert>
 
         <insert tableName="usuarios">
             <column name="nome" value="Usuário Quatro"/>
             <column name="email" value="usuario4@exemplo.com"/>
             <column name="hash_senha"
-                    value="$2a$12$INo0nbj40sQrTB7b28KJnOUuGHRlVYrpfmY5ybm8YEKkQAQnrrZge"/><!-- senha: usuario123 -->
+                    value="$2a$12$9ur1ZQSGWqkQTTnOUn0v0.XK9N8cUEcK.LxCbCLsSInajjAwV3NhW"/><!-- senha: 123 -->
         </insert>
     </changeSet>
 </databaseChangeLog>

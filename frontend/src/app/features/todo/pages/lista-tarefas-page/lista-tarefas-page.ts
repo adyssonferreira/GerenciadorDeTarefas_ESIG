@@ -7,7 +7,6 @@ import {TarefaService} from '../../../../core/services/tarefa.service';
 import Page, {getInitialPage, PageParams} from '../../../../shared/types/Page';
 import {ListaTarefasPagination} from '../../components/lista-tarefas-pagination/lista-tarefas-pagination';
 import {PaginatorState} from 'primeng/paginator';
-import {JsonPipe} from '@angular/common';
 import Situacao from '../../../../core/enums/Situacao';
 import {Button} from 'primeng/button';
 import ModoAcao from '../../../../shared/types/ModoAcao';
@@ -19,7 +18,6 @@ import {TarefaCadastro} from '../../components/tarefa-cadastro/tarefa-cadastro';
         ListaTarefasCampos,
         ListaTarefasGrid,
         ListaTarefasPagination,
-        JsonPipe,
         Button,
         TarefaCadastro
     ],

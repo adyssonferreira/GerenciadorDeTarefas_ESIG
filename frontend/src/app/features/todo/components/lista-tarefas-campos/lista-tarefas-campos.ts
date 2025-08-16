@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter, inject, Input, signal} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, inject, Input} from '@angular/core';
 import {Button} from "primeng/button";
 import {InputText} from "primeng/inputtext";
 import Situacao from '../../../../core/enums/Situacao';
@@ -7,7 +7,6 @@ import {FormsModule} from '@angular/forms';
 import Option from '../../../../shared/types/Option';
 import BuscaFiltro from '../../../../core/models/BuscaFiltro';
 import { UsuarioService } from '../../../../core/services/usuario.service';
-import ModoAcao from '../../../../shared/types/ModoAcao';
 
 @Component({
     selector: 'app-lista-tarefas-campos',

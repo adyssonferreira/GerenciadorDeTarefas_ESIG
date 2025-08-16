@@ -3,12 +3,13 @@
     <h2> Gerenciador de Tarefas</h2>
     <br>
 
-    <div class="login-form-input">
+    <form [formGroup]="loginForm">
+      <div class="login-form-input">
       <label for="input-usuario">Usuário</label>
       <p-icon-field>
-        <p-inputicon class="pi pi-user"/>
-        <input id="input-usuario" name="username" type="text" pInputText placeholder="joao_silva"
-               [(ngModel)]="usuario"/>
+        <p-inputicon class="pi pi-envelope"/>
+        <input id="input-usuario" name="email" type="text" pInputText placeholder="voce@email.com"
+               formControlName="email"/>
       </p-icon-field>
     </div>
 
@@ -18,7 +19,7 @@
       <label for="input-senha">Senha</label>
       <p-icon-field>
         <p-inputicon class="pi pi-lock"/>
-        <input id="input-senha" name="password" type="password" pInputText placeholder="sua_senha" [(ngModel)]="senha"/>
+        <input id="input-senha" name="password" type="password" pInputText placeholder="sua_senha" formControlName="senha">
       </p-icon-field>
       <p><small> senha padrão: 123</small></p>
     </div>
@@ -27,15 +28,19 @@
     <div class="login-form-buttons">
       @if(loading()) {
         <p-button label="Entrar" size="large"
-                  [disabled]="!submittable()"
+                  [disabled]="!submittable"
                   icon="pi pi-spin pi-spinner" iconPos="right"></p-button>
       } @else {
         <p-button label="Entrar" size="large"
                   (click)="login()"
-                  [disabled]="!submittable()"
+                  [disabled]="!submittable"
                   ></p-button>
       }
     </div>
+
+    </form>
   </div>
 </div>
+
+<p-toast position="top-center" />
 

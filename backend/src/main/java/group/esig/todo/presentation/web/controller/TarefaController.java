@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import java.lang.Integer;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/v1/tarefas")
 @RequiredArgsConstructor
 public class TarefaController {

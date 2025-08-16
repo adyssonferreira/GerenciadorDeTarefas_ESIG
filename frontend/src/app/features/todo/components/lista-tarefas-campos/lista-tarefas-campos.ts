@@ -31,7 +31,7 @@ export class ListaTarefasCampos implements OnInit {
 
     situacoes: Option[] = [
         {label: 'Todas', value: Situacao.TODAS},
-        {label: 'Aberta', value: Situacao.ABERTA},
+        {label: 'Em andamento', value: Situacao.ABERTA},
         {label: 'Finalizada', value: Situacao.FINALIZADA},
     ]
     situacaoSelecionada: Option | null = null;

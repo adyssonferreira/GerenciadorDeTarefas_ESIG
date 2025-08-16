@@ -1,11 +1,24 @@
+@import '../../../../shared/styles/variables.scss';
+
+$min-wdith-grid: 720px;
+
+.lista-tarefas-grid {
+    @media (max-width: $breakpoint-md) {
+        overflow-x: auto;
+    }
+}
+
 .grid-head {
     font-weight: bold;
     font-size: 0.95em;
     color: midnightblue;
+    min-width: $min-wdith-grid;
+    padding: 0.5em;
 }
 
 .grid-content {
     margin: 0.5em 0;
+    width: 100%;
 }
 
 .grid-row {
@@ -41,4 +54,6 @@
 .scroll-grid {
     max-height: calc(100vh - 480px);
     overflow-y: auto;
+    overflow-x: hidden;
+    min-width: $min-wdith-grid;
 }

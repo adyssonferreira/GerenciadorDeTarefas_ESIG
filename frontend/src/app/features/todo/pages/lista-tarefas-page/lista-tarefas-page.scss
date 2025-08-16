@@ -1,24 +1,39 @@
-.lista-tarefas-page  {
-  background-color: var(--p-surface-100);
-  width: 100vw;
-  height: 100vh;
-  padding: 1em 1.5em;
+@import '../../../../shared/styles/variables.scss';
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.lista-tarefas-page {
+    background-color: var(--p-surface-100);
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+    padding: 1em 1.5em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    @media (max-width: $breakpoint-md) {
+        padding: 10px;
+    }
 }
 
 .lista-tarefas-container {
-  width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  border-radius: 1em;
-  box-shadow: var(--box-shadow-md);
-  padding: 2em;
-  background-color: white;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    border-radius: 1em;
+    box-shadow: var(--box-shadow-md);
+    padding: 2em;
+    background-color: white;
 
+    @media (max-width: $breakpoint-md) {
+        padding: 1rem;
+    }
+}
+
+::ng-deep .p-dialog {
+    margin: 0 10px;
 }
 
 

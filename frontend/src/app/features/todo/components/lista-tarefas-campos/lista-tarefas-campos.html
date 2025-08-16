@@ -9,22 +9,16 @@
         <input type="text" [(ngModel)]="filtro.termo" pInputText class="w-full"/>
     </div>
 
-    <div class="row-two-colums">
+    <div class="row-colums-ext">
         <label>Responsável:</label>
+        <p-select [options]="usuarios" [(ngModel)]="usuarioSelecionado" optionLabel="label" placeholder="Responsável"
+                  emptyMessage="Nenhum usuário"/>
 
-        <div class="row-four-colums">
-            <p-select [options]="usuarios" [(ngModel)]="usuarioSelecionado" optionLabel="label" placeholder="Responsável"
-                      emptyMessage="Nenhum usuário"/>
+        <label>Situação:</label>
+        <p-select  [options]="situacoes" [(ngModel)]="situacaoSelecionada" optionLabel="label" placeholder="Situação" class="only-desktop" />
 
-            <div class="text-right pr-4">
-                <label>Situação:</label>
-            </div>
-
-            <p-select [options]="situacoes" [(ngModel)]="situacaoSelecionada" optionLabel="label" placeholder="Situação" />
-
-            <div class="text-right">
-                <p-button label="Buscar Tarefas" icon="pi pi-search" iconPos="right" (click)="emitirFiltro()"/>
-            </div>
+        <div class="text-right">
+            <p-button label="Buscar Tarefas" icon="pi pi-search" iconPos="right" (click)="emitirFiltro()"/>
         </div>
     </div>
 </div>

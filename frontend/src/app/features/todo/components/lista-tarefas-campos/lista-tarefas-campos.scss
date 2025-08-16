@@ -1,5 +1,11 @@
+@import '../../../../shared/styles/variables.scss';
+
 .lista-tarefas-campos {
     padding: 1em 1.5em;
+
+    @media (max-width: $breakpoint-md) {
+        padding: 10px;
+    }
 }
 
 .grid {
@@ -9,15 +15,46 @@
 label {
   font-weight: bold;
   font-size: 0.95em;
+    margin-bottom: 0.25em;
 }
 
 .row-two-colums {
     display: grid;
     grid-template-columns: 135px 1fr;
     margin: 1.25em 0;
+
+    @media (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+    }
 }
 
-.row-four-colums {
+.row-colums-ext {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 135px 185px 185px 185px 1fr;
+
+    @media (max-width: 1016px) {
+        grid-template-columns: 135px 165px 105px 145px 1fr;
+    }
+
+    @media (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+    }
+
+    :nth-child(3), :nth-child(5) {
+        @media (max-width: $breakpoint-md) {
+            margin-top: 1.05rem;
+        }
+    }
+
+    :nth-child(3) {
+        text-align: right;
+        margin-right: 1rem;
+
+        @media (max-width: $breakpoint-md) {
+            text-align: left;
+        }
+    }
 }
+
+
+

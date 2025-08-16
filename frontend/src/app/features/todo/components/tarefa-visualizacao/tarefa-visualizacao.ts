@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Dialog} from 'primeng/dialog';
-import {Button} from 'primeng/button';
 import Tarefa from '../../../../core/models/Tarefa';
 import {DatePipe} from '@angular/common';
 import {Tooltip} from 'primeng/tooltip';
@@ -10,7 +9,6 @@ import {ListaTarefasPrioridadeTag} from '../lista-tarefas-prioridade-tag/lista-t
   selector: 'app-tarefa-visualizacao',
     imports: [
         Dialog,
-        Button,
         DatePipe,
         Tooltip,
         ListaTarefasPrioridadeTag

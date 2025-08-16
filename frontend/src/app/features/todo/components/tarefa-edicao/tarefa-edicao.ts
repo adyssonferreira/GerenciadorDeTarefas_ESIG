@@ -1,7 +1,7 @@
 import {Component, EventEmitter, inject, Input, OnInit, Output, signal} from '@angular/core';
 import Tarefa, {TarefaRequest} from '../../../../core/models/Tarefa';
 import {Dialog} from 'primeng/dialog';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {InputText} from 'primeng/inputtext';
 import {Textarea} from 'primeng/textarea';
 import {UsuarioService} from '../../../../core/services/usuario.service';
@@ -13,6 +13,7 @@ import {Button} from 'primeng/button';
 import {TarefaService} from '../../../../core/services/tarefa.service';
 
 import Prioridade from '../../../../core/enums/Prioridade';
+import {finalize} from 'rxjs';
 
 @Component({
     selector: 'app-tarefa-edicao',
@@ -117,17 +118,21 @@ export class TarefaEdicao implements OnInit {
             responsavelId: formData.responsavel.value
         }
 
-        this.tarefaService.atualizarTarefa(this.tarefa!.id, request).subscribe({
-            next: (_usuarios) => {
-                this.loadingEdicao.set(false);
-                                this.onItemSalvo.emit(true);
-            },
+        this.tarefaService.atualizarTarefa(this.tarefa!.id, request)
+            .pipe(
+                finalize(() => {
+                    this.loadingEdicao.set(false);
+                })
+            )
+            .subscribe({
+                next: (_usuarios) => {
+                    this.onItemSalvo.emit(true);
+                },
 
-            error: (error) => {
-                this.loadingEdicao.set(false);
-                console.error('Erro ao atualizar tarefa:', error);
-                this.onItemSalvo.emit(false);
-            },
+                error: (error) => {
+                    console.error('Erro ao atualizar tarefa:', error);
+                    this.onItemSalvo.emit(false);
+                },
         })
     }
 }

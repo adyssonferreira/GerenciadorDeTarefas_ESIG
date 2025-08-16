@@ -11,6 +11,7 @@ import {Textarea} from 'primeng/textarea';
 import {DatePicker} from 'primeng/datepicker';
 import {Select} from 'primeng/select';
 import {Button} from 'primeng/button';
+import {finalize} from 'rxjs';
 
 @Component({
   selector: 'app-tarefa-cadastro',
@@ -113,19 +114,24 @@ export class TarefaCadastro implements OnInit {
         if(!this.validacoes(request)) return
 
         this.loadingCadastro.set(true);
-        this.tarefaService.criarTarefa(request).subscribe({
-            next: (_usuarios) => {
-                this.loadingCadastro.set(false);
-                this.tarefaForm.reset();
-                this.onItemSalvo.emit(true);
-            },
 
-            error: (error) => {
-                this.loadingCadastro.set(false);
-                console.error('Erro ao atualizar tarefa:', error);
-                this.onItemSalvo.emit(false);
-            },
-        })
+        this.tarefaService.criarTarefa(request)
+            .pipe(
+                finalize(() => {
+                    this.loadingCadastro.set(false);
+                })
+            )
+            .subscribe({
+                next: (_usuarios) => {
+                    this.tarefaForm.reset();
+                    this.onItemSalvo.emit(true);
+                },
+
+                error: (error) => {
+                    console.error('Erro ao criar tarefa:', error);
+                    this.onItemSalvo.emit(false);
+                },
+            })
     }
 
     validacoes(request: TarefaRequest): boolean {

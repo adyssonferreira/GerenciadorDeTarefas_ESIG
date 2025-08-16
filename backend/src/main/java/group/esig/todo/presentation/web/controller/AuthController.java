@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/auth")
 public class AuthController {

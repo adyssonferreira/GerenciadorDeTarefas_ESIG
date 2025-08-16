@@ -1,11 +1,35 @@
 version: '3.8'
 
 services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend-gerenciador-tarefas
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend-gerenciador-tarefas
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+
   postgres:
     image: postgres:16.8
     container_name: postgres-gerenciador-tarefas
     ports:
-      - "5434:5432"
+      - "5432:5432"
     environment:
       POSTGRES_DB: gerenciador_tarefas
       POSTGRES_USER: postgres

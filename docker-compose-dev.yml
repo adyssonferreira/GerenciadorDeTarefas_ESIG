@@ -1,0 +1,25 @@
+version: '3.8'
+
+name: gerenciador-tarefas-dev
+
+services:
+  postgres:
+    image: postgres:16.8
+    container_name: postgres-gerenciador-tarefas
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: gerenciador_tarefas
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data_2:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  postgres_data_2:
+
+networks:
+  app-network:
+    driver: bridge

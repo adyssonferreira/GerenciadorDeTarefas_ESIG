@@ -11,6 +11,7 @@ import Situacao from '../../../../core/enums/Situacao';
 import {Button} from 'primeng/button';
 import ModoAcao from '../../../../shared/types/ModoAcao';
 import {TarefaCadastro} from '../../components/tarefa-cadastro/tarefa-cadastro';
+import {Loggoff} from '../../components/loggoff/loggoff';
 
 @Component({
     selector: 'app-lista-tarefas-page',
@@ -19,7 +20,8 @@ import {TarefaCadastro} from '../../components/tarefa-cadastro/tarefa-cadastro';
         ListaTarefasGrid,
         ListaTarefasPagination,
         Button,
-        TarefaCadastro
+        TarefaCadastro,
+        Loggoff
     ],
     templateUrl: './lista-tarefas-page.html',
     styleUrl: './lista-tarefas-page.scss'

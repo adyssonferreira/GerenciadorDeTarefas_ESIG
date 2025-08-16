@@ -1,11 +1,13 @@
 package group.esig.todo.domain.models;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.UUID;
 
 @Data
+@Builder
 @EqualsAndHashCode(of = "id")
 public class Usuario {
 

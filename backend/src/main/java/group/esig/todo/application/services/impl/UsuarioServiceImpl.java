@@ -1,6 +1,7 @@
-package group.esig.todo.application.services;
+package group.esig.todo.application.services.impl;
 
 import group.esig.todo.application.dto.UsuarioDTO;
+import group.esig.todo.application.services.UsuarioService;
 import group.esig.todo.domain.models.Usuario;
 import group.esig.todo.domain.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;

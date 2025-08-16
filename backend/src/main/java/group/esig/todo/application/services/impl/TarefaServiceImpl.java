@@ -1,8 +1,9 @@
-package group.esig.todo.application.services;
+package group.esig.todo.application.services.impl;
 
 import group.esig.todo.application.dto.TarefaQueryDTO;
 import group.esig.todo.application.dto.TarefaRequestDTO;
 import group.esig.todo.application.dto.TarefaResponseDTO;
+import group.esig.todo.application.services.TarefaService;
 import group.esig.todo.domain.enums.Prioridade;
 import group.esig.todo.domain.enums.TarefaStatus;
 import group.esig.todo.domain.models.Tarefa;
@@ -17,7 +18,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor

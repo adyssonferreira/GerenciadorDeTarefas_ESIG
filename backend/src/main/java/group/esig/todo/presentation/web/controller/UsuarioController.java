@@ -1,7 +1,7 @@
 package group.esig.todo.presentation.web.controller;
 
 import group.esig.todo.application.dto.UsuarioDTO;
-import group.esig.todo.application.services.UsuarioServiceImpl;
+import group.esig.todo.application.services.impl.UsuarioServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

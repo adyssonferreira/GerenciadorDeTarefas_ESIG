@@ -41,7 +41,7 @@ public class TarefaRepositoryImpl implements TarefaRepository {
 
     @Override
     public void remover(Integer id) {
-        repositoryJpa.deleteById(Integer.valueOf(id));
+        repositoryJpa.deleteById(id);
     }
 
     @Override

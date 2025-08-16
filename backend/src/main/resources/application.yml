@@ -18,7 +18,7 @@ spring:
     enabled: true
 jwt:
   secret: X7pL9qW3zT2rY6mB8nK4vJ0xF5cH1tAa
-  expiration: 864000000
+  expiration: 86400
   
   
 

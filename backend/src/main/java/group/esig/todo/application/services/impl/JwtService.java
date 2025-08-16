@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
+import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,14 +35,14 @@ public class JwtService {
                 .collect(Collectors.toList());
         claims.put("roles", roles);
 
-        Date now = new Date();
-        Date exp = new Date(now.getTime() + expirationTime);
+        Instant now = Instant.now();
+        Instant exp = now.plusSeconds(expirationTime);
 
         String token = Jwts.builder()
                 .setClaims(claims)
                 .setSubject(user.getUsername())
-                .setIssuedAt(now)
-                .setExpiration(exp)
+                .setIssuedAt(Date.from(now))
+                .setExpiration(Date.from(exp))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
 

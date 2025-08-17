@@ -57,31 +57,7 @@ backend/src/main/java/group/esig/todo/
 - **H2**: Banco de dados para testes
 
 #### Endpoints REST Implementados
-### Comandos Úteis
 
-#### Backend
-```bash
-# Executar testes
-./mvnw test
-
-# Gerar JAR
-./mvnw clean package
-
-# Executar com perfil específico
-./mvnw spring-boot:run -Dspring.profiles.active=dev
-```
-
-#### Frontend
-```bash
-# Executar testes
-npm test
-
-# Build de produção
-npm run build
-
-# Linting
-npm run lint
-```
 **Autenticação:**
 - `POST /api/v1/auth/login` - Login de usuário
 
@@ -145,19 +121,22 @@ frontend/src/app/
 - **ListaTarefasGrid**: Grid responsivo com ações
 - **ListaTarefasCampos**: Filtros de busca
 
-## Instruções para Execução Local
+#### Responsividade e Adaptação a Diferentes Tamanhos de Tela
+- **Mobile First**: Design baseado em abordagem mobile-first para garantir boa experiência em dispositivos móveis
+- **Breakpoints Responsivos**: Utilização do sistema de grid do PrimeFlex com breakpoints para:
+  - **Mobile**: < 768px - Layout em coluna única, botões empilhados
+  - **Tablet**: 768px - 1024px - Grid de 2 colunas, filtros em linha
+  - **Desktop**: > 1024px - Grid completo com todas as funcionalidades
+- **Componentes Adaptativos**: 
+  - Grid de tarefas se adapta automaticamente ao tamanho da tela
+  - Modais responsivos que se ajustam à viewport
+  - Formulários com layout flexível
 
-### Pré-requisitos
-- **Java 21** (JDK)
-- **Node.js 18+** e npm
-- **PostgreSQL 16+**
-- **Docker** e **Docker Compose** (opcional)
-
-### Execução com Docker
+## Instruções para Execução com Docker
 
 1. **Clone o repositório:**
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/adyssonferreira/GerenciadorDeTarefas_ESIG.git
 cd gerenciador-tarefas
 ```
 
@@ -175,8 +154,8 @@ docker-compose up -d
 
 ### Dados de Teste
 O sistema inclui dados de teste pré-configurados:
-- **Usuário padrão**: usuario1@exemplo.com
-- **Senha**: 123
+- **Usuário padrão**: ``usuario1@exemplo.com``
+- **Senha**: *123*
 
 ### Possíveis melhorias
 - Implementação de testes automatizados

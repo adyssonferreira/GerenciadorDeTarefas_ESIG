@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="insert-tarefas-data" author="liquibase">
+        <comment>Inserção de dados iniciais na tabela tarefas</comment>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Implementar autenticação de usuários"/>
+            <column name="descricao" value="Desenvolver sistema de login e registro com validação de credenciais e tokens JWT"/>
+            <column name="responsavel_id" value="1"/>
+            <column name="prioridade" value="ALTA"/>
+            <column name="status" value="ABERTA"/>
+            <column name="deadline" value="2025-08-30 17:00:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Criar dashboard administrativo"/>
+            <column name="descricao" value="Interface para visualização de métricas e relatórios gerenciais"/>
+            <column name="responsavel_id" value="2"/>
+            <column name="prioridade" value="MEDIA"/>
+            <column name="status" value="ABERTA"/>
+            <column name="deadline" value="2025-09-15 12:00:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Otimizar consultas do banco de dados"/>
+            <column name="descricao" value="Analisar e otimizar queries lentas, criar índices necessários"/>
+            <column name="responsavel_id" value="1"/>
+            <column name="prioridade" value="ALTA"/>
+            <column name="status" value="FINALIZADA"/>
+            <column name="deadline" value="2025-08-20 09:00:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Documentar API REST"/>
+            <column name="descricao" value="Criar documentação completa dos endpoints usando Swagger/OpenAPI"/>
+            <column name="responsavel_id" value="3"/>
+            <column name="prioridade" value="BAIXA"/>
+            <column name="status" value="ABERTA"/>
+            <column name="deadline" value="2025-09-10 14:30:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Implementar notificações por email"/>
+            <column name="descricao" value="Sistema de envio de emails automáticos para alertas e notificações"/>
+            <column name="responsavel_id" value="2"/>
+            <column name="prioridade" value="MEDIA"/>
+            <column name="status" value="ABERTA"/>
+            <column name="deadline" value="2025-09-05 16:00:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Configurar ambiente de produção"/>
+            <column name="descricao" value="Setup do servidor, configuração de SSL, domínio e monitoramento"/>
+            <column name="responsavel_id" value="1"/>
+            <column name="prioridade" value="ALTA"/>
+            <column name="status" value="ABERTA"/>
+            <column name="deadline" value="2025-08-25 10:00:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Criar testes unitários"/>
+            <column name="descricao" value="Implementar suite de testes para cobertura mínima de 80% do código"/>
+            <column name="responsavel_id" value="3"/>
+            <column name="prioridade" value="MEDIA"/>
+            <column name="status" value="ABERTA"/>
+            <column name="deadline" value="2025-09-12 13:45:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Integração com serviço de pagamento"/>
+            <column name="descricao" value="Implementar gateway de pagamento com Stripe ou PayPal"/>
+            <column name="responsavel_id" value="2"/>
+            <column name="prioridade" value="ALTA"/>
+            <column name="status" value="ABERTA"/>
+            <column name="deadline" value="2025-09-01 15:30:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Refatorar código legado"/>
+            <column name="descricao" value="Modernizar módulos antigos e aplicar padrões de design atuais"/>
+            <column name="responsavel_id" value="1"/>
+            <column name="prioridade" value="BAIXA"/>
+            <column name="status" value="ABERTA"/>
+            <column name="deadline" value="2025-09-20 11:00:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Implementar cache Redis"/>
+            <column name="descricao" value="Configurar sistema de cache para melhorar performance das consultas"/>
+            <column name="responsavel_id" value="3"/>
+            <column name="prioridade" value="MEDIA"/>
+            <column name="status" value="FINALIZADA"/>
+            <column name="deadline" value="2025-08-18 08:30:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Criar backup automatizado"/>
+            <column name="descricao" value="Sistema de backup diário do banco de dados com rotação de arquivos"/>
+            <column name="responsavel_id" value="2"/>
+            <column name="prioridade" value="ALTA"/>
+            <column name="status" value="ABERTA"/>
+            <column name="deadline" value="2025-08-28 19:00:00"/>
+        </insert>
+
+        <insert tableName="tarefas">
+            <column name="titulo" value="Configurar monitoramento de logs"/>
+            <column name="descricao" value="Implementar ELK Stack para análise e monitoramento de logs da aplicação"/>
+            <column name="responsavel_id" value="1"/>
+            <column name="prioridade" value="BAIXA"/>
+            <column name="status" value="ABERTA"/>
+            <column name="deadline" value="2025-09-18 16:15:00"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

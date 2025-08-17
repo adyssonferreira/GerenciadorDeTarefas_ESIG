@@ -9,13 +9,6 @@
         <comment>Inserção de usuários padrão</comment>
 
         <insert tableName="usuarios">
-            <column name="nome" value="Administrador"/>
-            <column name="email" value="admin@exemplo.com"/>
-            <column name="hash_senha"
-                    value="$2a$12$9ur1ZQSGWqkQTTnOUn0v0.XK9N8cUEcK.LxCbCLsSInajjAwV3NhW"/><!-- senha: 123 -->
-        </insert>
-
-        <insert tableName="usuarios">
             <column name="nome" value="Usuário Um"/>
             <column name="email" value="usuario1@exemplo.com"/>
             <column name="hash_senha"

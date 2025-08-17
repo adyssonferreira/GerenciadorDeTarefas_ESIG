@@ -66,8 +66,18 @@ public class TarefaServiceImpl implements TarefaService {
         if (Objects.nonNull(dto.descricao()) && !dto.descricao().isBlank())
             tarefa.setDescricao(dto.descricao());
 
-        tarefa.setPrioridade(Prioridade.valueOf(dto.prioridade()));
-        tarefa.setDeadline(dto.deadline());
+        if (Objects.nonNull(dto.prioridade()) && !dto.prioridade().isBlank())
+            tarefa.setPrioridade(Prioridade.valueOf(dto.prioridade()));
+
+        if(Objects.nonNull(dto.deadline()))
+            tarefa.setDeadline(dto.deadline());
+
+        if(Objects.nonNull(dto.responsavelId())) {
+            Usuario responsavel = usuarioRepository.buscarPorId(dto.responsavelId());
+
+            if(Objects.nonNull(responsavel))
+                tarefa.setResponsavel(responsavel);
+        }
 
         return TarefaResponseDTO.from(repository.salvar(tarefa));
     }

@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://64.176.17.0/api/v1',
+    apiUrl: 'https://gerenciador-tarefas-esigg-api.duckdns.org/api/v1',
 };

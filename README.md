@@ -4,6 +4,8 @@
 
 Este projeto implementa um sistema completo de gerenciamento de tarefas com arquitetura de microserviços, composto por um frontend em Angular e um backend em Spring Boot, utilizando PostgreSQL como banco de dados.
 
+  ![Visualização](imagens/s1.png)
+
 ## Itens Implementados
 
 ###  a) Frontend em Angular (Versão Mais Recente)
@@ -73,6 +75,16 @@ backend/src/main/java/group/esig/todo/
 **Usuários:**
 - `GET /api/v1/usuarios` - Listar todos os usuários
 
+#### Documentação da API - Swagger
+- **URL**: http://localhost:8080/swagger-ui/index.html
+- **Descrição**: Interface interativa para documentação completa da API REST
+- **Funcionalidades**:
+  - Visualização de todos os endpoints disponíveis
+  - Teste direto dos endpoints com parâmetros
+  - Exemplos de requisições e respostas
+
+  ![Visualização de todos os endpoints disponíveis](imagens/sw.png)
+
 #### Segurança
 - **JWT Authentication**: Tokens com expiração configurável
 - **CORS**: Configurado para permitir comunicação com frontend
@@ -94,7 +106,6 @@ frontend/src/app/
 ├── shared/ # Componentes e tipos compartilhados
 └── app.* # Configuração principal
 ```
-
 
 #### Tecnologias Utilizadas
 - **Angular 20.1.0**: Framework principal
@@ -132,6 +143,10 @@ frontend/src/app/
   - Modais responsivos que se ajustam à viewport
   - Formulários com layout flexível
 
+![Tela de Lista de Tarefas Tablet ](imagens/s3.png)
+
+![Tela de Lista de Tarefas Mobile](imagens/s2.png)
+
 ## Instruções para Execução com Docker
 
 1. **Clone o repositório:**
@@ -154,12 +169,11 @@ docker-compose up -d
 
 ### Dados de Teste
 O sistema inclui dados de teste pré-configurados:
-- **Usuário padrão**: ``usuario1@exemplo.com``
+- **Usuário padrão**: `usuario1@exemplo.com`
 - **Senha**: *123*
 
 ### Possíveis melhorias
 - Implementação de testes automatizados
 - CI/CD pipeline
 - Monitoramento e logs
-- Documentação da API (Swagger)
 - Backup automático do banco

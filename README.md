@@ -6,6 +6,8 @@ Este projeto implementa um sistema completo de gerenciamento de tarefas com arqu
 
   ![Visualização](imagens/s1.png)
 
+Disponível em: [https://gerenciador-tarefas-esigg.vercel.app](https://gerenciador-tarefas-esigg.vercel.app)
+
 ## Itens Implementados
 
 ###  a) Frontend em Angular (Versão Mais Recente)

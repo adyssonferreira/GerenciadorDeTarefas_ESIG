@@ -1,1 +1,25 @@
-{ "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist/gerenciador-tarefas/browser"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/assets/(.*)",
+            "dest": "/assets/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
+        }
+    ],
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist/gerenciador-tarefas/browser",
+    "installCommand": "npm install"
+}

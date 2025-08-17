@@ -173,7 +173,7 @@ O sistema inclui dados de teste pré-configurados:
 - **Senha**: *123*
 
 ### Possíveis melhorias
-- Implementação de testes automatizados
+- Implementação de maior cobertura testes automatizados
 - CI/CD pipeline
 - Monitoramento e logs
 - Backup automático do banco

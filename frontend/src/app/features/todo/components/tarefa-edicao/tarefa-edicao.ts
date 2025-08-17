@@ -125,7 +125,7 @@ export class TarefaEdicao implements OnInit {
                 })
             )
             .subscribe({
-                next: (_usuarios) => {
+                next: (_) => {
                     this.onItemSalvo.emit(true);
                 },
 

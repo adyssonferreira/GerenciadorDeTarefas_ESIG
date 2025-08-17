@@ -16,6 +16,7 @@ export class TarefaService extends Service {
     }
 
     atualizarTarefa(tarefaId: string, tarefa: TarefaRequest): Observable<Tarefa> {
+        debugger
         return this.http.put<Tarefa>(`${this.baseUrl}/${tarefaId}`, tarefa);
     }
 
@@ -27,7 +28,8 @@ export class TarefaService extends Service {
                 ...(filtro.prioridade && filtro.prioridade != "TODAS" ? {prioridade: filtro.prioridade} : {}),
                 ...(filtro.responsavelId ? {responsavelId: filtro.responsavelId} : {}),
                 ...(filtro.situacao && filtro.situacao != "TODAS" ? {status: filtro.situacao} : {}),
-                ...pagina
+                ...pagina,
+                sort: "id,asc"
             }
         });
     }

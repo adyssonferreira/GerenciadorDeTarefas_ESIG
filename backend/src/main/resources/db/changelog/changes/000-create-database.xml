@@ -6,9 +6,16 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
 
     <changeSet id="create-database" author="liquibase">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sqlCheck expectedResult="1">
+                    SELECT 1 FROM pg_database WHERE datname = 'gerenciador_tarefas'
+                </sqlCheck>
+            </not>
+        </preConditions>
         <sql>
             CREATE DATABASE gerenciador_tarefas;
-                GRANT ALL PRIVILEGES ON DATABASE gerenciador_tarefas TO postgres;
+            GRANT ALL PRIVILEGES ON DATABASE gerenciador_tarefas TO postgres;
         </sql>
     </changeSet>
 </databaseChangeLog>
